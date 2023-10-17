@@ -1,0 +1,218 @@
+{%load static%}
+{% load ratings %}
+{% load humanize %}
+<!DOCTYPE html>
+<html>
+<head>
+<title> 
+{%block title%}
+Jetwrie 4.1.1
+{%endblock title%}
+</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="{%static 'icon/favicon.ico'%}"/>
+<link rel="stylesheet" href="{%static '/css/w3schools.com_w3css_4_w3.css'%}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+
+<script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
+</head>
+<body class=" w3-content" style="max-width:1600px; background-color: #ffffff;">
+
+
+  <style>
+    *{
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+
+
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Ubuntu&display=swap');
+    @import url('https://v1.fontapi.ir/css/Sahel');
+       body{
+      font-family: 'Ubuntu', sans-serif;
+      font-family: Sahel, sans-serif;
+      background: #f6f8fc;
+      color: #202124;
+   }
+    .btn-jetwrie{
+      border: none;
+      border-radius: 4px;
+      background-color: #aee8ff;
+      color: #1a1a1a;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 16px;
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
+    .btn-jetwrie:hover{
+      border: none;
+      border-radius: 4px;
+      background-color: #f3f9ff;
+      color: #1a1a1a;
+      font-size: 16px;
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    }
+    .btn-jetwrie:focus{
+      border: none;
+      border-radius: 4px;
+      background-color: #f3f9ff;
+      color: #1a1a1a;
+      font-size: 16px;
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    }
+    .btn-jetwrie-nav{
+      border: none;
+      border-radius: 4px;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      padding: 12px;
+      font-family: 'Dela Gothic One', cursive;
+      font-family: 'Ubuntu', sans-serif;
+      text-decoration: none;
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
+    .btn-jetwrie-nav:hover{
+      border: none;
+      border-radius: 4px;
+/*      background-color: #f8ffbc;*/
+      background-color: #d9ffdc;
+
+      color: #1a1a1a;
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
+    .btn-jetwrie-nav:focus{
+      border: none;
+      border-radius: 4px;
+      background-color: #d9ffdc;
+
+/*      background-color: #faffcd;*/
+      color: #1a1a1a;
+      -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    }
+    .img-no-copy{
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+    }
+    .input-search:focus{
+      outline: none;
+
+    }
+    .activate{
+/*      background: #faffcd;*/
+        background: #e5ffe7;
+    }
+  </style>
+<!-- Sidebar/menu -->
+{%include './sitebar.html'%}
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+   
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+</svg></span>
+    <div class="w3-container">
+    <h1 style="font-size: 20px !important; font-family: 'Ubuntu', sans-serif;-webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;"><b>{%block title-view%}JETWRIE{%endblock title-view%}</b></h1>
+    <div class="w3-section  w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <a href="{%url 'home'%}" class="btn-jetwrie" style="background-color: #aee8ff;">ALL</a>
+      
+      {%for cat in category.all%}
+      <a href="{%url 'category' cat.slug%}" class="btn-jetwrie">{{cat.title}}</a>
+      {%endfor%}
+
+       <form class="w3-button w3-hide-small" action="{%url 'search'%}" method="GET">
+          {%csrf_token%}
+          <span>
+          <input class="input-search" style=" background: #F9FAFF; border: 3px solid #1a1a1a; border-radius: 4px; color: #1a1a1a; padding: 8px; font-size:16px;" type="text" name="searched" placeholder="Search" value="{{searched}}">
+        </span>
+          <button class="btn-jetwrie">Search</button>
+
+          
+       </form>
+       <hr>
+    </div>
+    </div>
+  </header>
+ 
+  
+
+ 
+  <!-- First Photo Grid-->
+  {%block content%}
+  
+
+  {%endblock content%}
+  <!-- Images of Me -->
+  
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+function linkBtn(){
+  window.location.assign('{%url 'create'%}')
+}
+</script>
+
+</body>
+</html>

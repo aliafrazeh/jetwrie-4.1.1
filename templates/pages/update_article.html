@@ -1,0 +1,120 @@
+{%extends './base.html'%}
+{% load widget_tweaks %}
+
+{%block title%}
+Edit
+{%endblock title%}
+{%block title-view%}<h1 style="font-size:35px !important;      font-family: 'Ubuntu', sans-serif;">Edit
+</h1>{%endblock title-view%}
+
+{%block content%}
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<style>
+     body{
+          font-size: 18px;
+           -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+
+     }
+     .form-control-jetwrie{
+          text-align: right;
+          font-family: Sahel, sans-serif;
+          direction: rtl;
+          border-radius: 4px;
+          border: 1px solid #5b5959;
+          height: 150px;
+          width: 100%;
+     }
+     .form-control-jetwrie:focus{
+          text-align: right;
+          font-family: Sahel, sans-serif;
+          direction: rtl;
+          border-radius: 4px;
+          outline: none;
+          border: 1px solid #000;
+     }
+     .form-control-jetwrie:hover{
+          text-align: right;
+          font-family: Sahel, sans-serif;
+          direction: rtl;
+          border-radius: 4px;
+          outline: none;
+          border: 1px solid #000;
+     }
+     .form-control-jetwrie-en{
+          text-align: left;
+          font-family: Sahel, sans-serif;
+          direction: ltr;
+          border-radius: 4px;
+          border: 1px solid #5b5959;
+          height: 150px;
+          width: 100%;
+     }
+     .form-control-jetwrie-en:focus{
+          text-align: left;
+          font-family: Sahel, sans-serif;
+          direction: ltr;
+          border-radius: 4px;
+          outline: none;
+          border: 1px solid #000;
+     }
+     .form-control-jetwrie-en:hover{
+          text-align: left;
+          font-family: Sahel, sans-serif;
+          direction: ltr;
+          border-radius: 4px;
+          outline: none;
+          border: 1px solid #000;
+     }
+    .center{
+     text-align: center;
+    }
+</style>
+<div class="center">
+<button onclick="click_en()" class="btn btn-primary">en</button>
+<button onclick="click_fa()" class="btn btn-success">fa</button>
+</div>
+<form method="post" style="text-align: left;" enctype="multipart/form-data">
+     {%csrf_token%}
+     <div class="center">
+     
+     {{form.post|add_class:'form-control-jetwrie-en'}}
+     </div>
+    {{form.pictures|add_class:'form-control'}}
+     {{form.category|add_class:'form-select'}}
+
+     {{form.author|add_class:'form-select'}}
+
+     {{form.publish|add_class:'form-control'}}
+ 
+     Video: {{form.video|add_class:'form-control'}}
+     
+     Private: {{form.private|add_class:'form-check-input'}}
+
+     <div class="center">
+     
+     <br>
+     
+     <button type="submit"  class="btn btn-success">Submit</button>
+</div>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+     let inputPost = document.querySelector('.form-control-jetwrie-en') 
+     inputPost.placeholder = "Text"
+     function click_en(){
+          inputPost.classList = "form-control-jetwrie-en"
+          inputPost.placeholder = "Text"
+     }
+     function click_fa(){
+          inputPost.classList = "form-control-jetwrie"
+          inputPost.placeholder = "نوشتن"
+     }
+</script>
+
+{%endblock%}

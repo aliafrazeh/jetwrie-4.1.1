@@ -1,0 +1,75 @@
+{%extends './base.html'%}
+{% load ratings %}
+{% load humanize %}
+{%load static%}
+{%block title-view%}<h1 style="font-size:35px !important;      font-family: 'Ubuntu', sans-serif;">My Post
+</h1>{%endblock title-view%}
+{%block content%}
+
+<div class="w3-row-padding">
+{%for article in object_list %}
+    <div class="w3-third w3-container w3-margin-bottom">
+      {%if article.pictures%}
+      <img src="{{article.pictures.url}}" alt="{{article.post}}" style="width:100%" class="w3-hover-opacity">
+      {%endif%}
+      {%if article.video%}
+      <video class="video-fluid" style="width:100%" class="w3-hover-opacity" controls>
+          <source src="{{article.video.url}}" type="video/mp4" /></video>
+      {%endif%}
+      <div class="w3-container w3-white">
+        
+        <p style="word-wrap: break-word;"><a href="{%url 'detail' article.id %}" style="text-decoration: none;">{{article.post}}</a></p>
+        {%if article.author.pictures%}    
+        <img style="border-radius:4px; width: 50px;" src="{{article.author.pictures.url}}">
+        {%endif%}
+         {%if article.author.blue_tick%}
+        <img class="img-no-copy" src="{%static 'icon/tickblue.svg'%}" alt="Blue Tick" width="25">
+        {%endif%}
+        {%if article.author.golden_tick%}
+        <img class="img-no-copy" src="{%static 'icon/goldentick.png'%}" alt="Golden Tick" width="25">
+        {%endif%}
+        {%if article.author.black_tick%}
+        <img class="img-no-copy" src="{%static 'icon/blackctick.png'%}" alt="Black Tick" width="25">
+        {%endif%}
+      {%if article.author.first_name or article.author.last_name%}
+        {%if article.author.first_name%}
+          {{article.author.first_name}}
+        {%endif%}
+        {%if article.author.last_name%}
+          {{article.author.last_name}}
+        {%endif%}
+      {%else%}
+      {{article.author}}
+      {%endif%}
+      <br>
+      <small>Views: {{article.hits.count}}</small>
+      <p>{{article.publish|naturaltime}}</p>
+      {% ratings article %}   
+      <br>
+       {%for cat in article.category.all%}              
+          <a style="text-decoration: none; font-family: 'Ubuntu', sans-serif;" href="{%url 'category' cat.slug%}">
+          <br>
+              #{{cat.title}}</a>
+          <br>
+        {%endfor%}
+
+        {%if article.private%}
+          <p style="color:#ff003e; background-color:#ebf3ff; width:60px; border-radius:4px; -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
+      user-select: none;
+      ">Private</p>
+      {%endif%}
+
+        
+
+
+    <hr>
+      <a class="btn-jetwrie" href="{%url 'update' article.id%}">Edit</a>        
+       <a class="btn-jetwrie" href="{%url 'delete' article.id%}">Delete</a>        
+    </div>
+</div>
+{%endfor%}
+{%endblock content%}
